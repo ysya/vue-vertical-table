@@ -92,14 +92,16 @@ export default {
     // height: 35px;
     line-height: 40px;
     box-sizing: border-box;
-    // padding: 0 10px;
+    padding: 0 8px;
   }
 }
 </style>
 <style lang="scss">
-.el-input {
-  input {
-    border-style: none;
+.td-value {
+  .el-input {
+    input {
+      border-style: none;
+    }
   }
 }
 </style>
