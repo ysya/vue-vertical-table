@@ -4,6 +4,7 @@
     <el-button type="primary" @click="getData">取得資料</el-button>
 
     <h4>雙向綁定：</h4>
+    <el-input v-model="tableStyle.width" placeholder="" />
     <div v-for="(row, outerIndex) in tableData" :key="outerIndex">
       <div
         v-for="(col, innerIndex) in row"

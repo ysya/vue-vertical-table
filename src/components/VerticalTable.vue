@@ -84,14 +84,22 @@ export default {
       }
     }
   }
+
   tr td {
     // border: 1px solid #e6eaee;
     // width: 150px;
     widows: 100%;
-    height: 35px;
+    // height: 35px;
     line-height: 40px;
     box-sizing: border-box;
     // padding: 0 10px;
+  }
+}
+</style>
+<style lang="scss">
+.el-input {
+  input {
+    border-style: none;
   }
 }
 </style>
