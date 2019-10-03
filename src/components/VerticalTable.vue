@@ -1,6 +1,6 @@
 <template>
-  <div class="table-box">
-    <table class="table-body" :style="styleObject">
+  <div class="table-box" :style="styleObject">
+    <table class="table-body">
       <tr
         v-for="(row, outerIndex) in tableData"
         :key="outerIndex"
@@ -86,9 +86,10 @@ export default {
   }
   tr td {
     // border: 1px solid #e6eaee;
-    width: 150px;
+    // width: 150px;
+    widows: 100%;
     height: 35px;
-    line-height: 35px;
+    line-height: 40px;
     box-sizing: border-box;
     // padding: 0 10px;
   }

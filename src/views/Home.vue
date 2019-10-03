@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VerticalTable :table-data="tableData" :table-style="{ width: '50%' }" />
+    <VerticalTable :table-data="tableData" :table-style="tableStyle" />
     <el-button type="primary" @click="getData">取得資料</el-button>
 
     <h4>雙向綁定：</h4>
@@ -20,6 +20,7 @@
 export default {
   data() {
     return {
+      tableStyle: { width: '500px' },
       tableData: [
         [
           { isEdit: false, key: '單號', value: '1001' },
