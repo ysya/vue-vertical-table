@@ -101,6 +101,7 @@ export default {
   .el-input {
     input {
       border-style: none;
+      background: rgba(255, 255, 255, 0);
     }
   }
 }
