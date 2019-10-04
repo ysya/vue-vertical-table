@@ -13,7 +13,6 @@
     "core-js": "^2.6.9",
     "element-ui": "^2.12.0",
     "vue": "^2.6.10",
-    "vue-json-pretty": "^1.6.2",
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
@@ -30,7 +29,8 @@
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "terser-webpack-plugin": "^2.1.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vue-json-pretty": "^1.6.2"
   },
   "eslintConfig": {
     "root": true,
