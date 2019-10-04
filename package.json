@@ -13,6 +13,7 @@
     "core-js": "^2.6.9",
     "element-ui": "^2.12.0",
     "vue": "^2.6.10",
+    "vue-json-pretty": "^1.6.2",
     "vue-router": "^3.0.3"
   },
   "devDependencies": {

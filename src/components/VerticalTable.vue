@@ -1,11 +1,7 @@
 <template>
   <div class="table-box" :style="styleObject">
     <table class="table-body">
-      <tr
-        v-for="(row, outerIndex) in tableData"
-        :key="outerIndex"
-        class="tr-body"
-      >
+      <tr v-for="(row, outerIndex) in tData" :key="outerIndex" class="tr-body">
         <div
           v-for="(col, innerIndex) in row"
           :key="innerIndex"
@@ -17,9 +13,11 @@
             <td class="td-value">{{ col.value }}</td>
           </template>
           <template v-if="col.isEdit === true">
-            <td class="td-value">
-              <el-input v-model="col.value" clearable />
-            </td>
+            <template v-if="col.type === 'input'">
+              <td class="td-value">
+                <el-input v-model="col.value" />
+              </td>
+            </template>
           </template>
         </div>
       </tr>
@@ -40,10 +38,16 @@ export default {
   computed: {
     rowCount: function() {
       return Math.ceil(this.tableData.length / 2)
+    },
+    tData: function() {
+      return this.tableData.map(item => {
+        return item.children
+      })
     }
   },
   created() {
     this.styleObject = this.tableStyle
+    console.log(this.tData)
   },
   methods: {}
 }
@@ -102,6 +106,7 @@ export default {
     input {
       border-style: none;
       background: rgba(255, 255, 255, 0);
+      padding: 0;
     }
   }
 }
