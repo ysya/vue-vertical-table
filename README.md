@@ -1,29 +1,41 @@
 # vue-vertical-table
 
-## Project setup
+## Install
+
 ```
-yarn install
+npm i ysya/vue-vertical-table
 ```
 
-### Compiles and hot-reloads for development
+## Use
+
 ```
-yarn run serve
+<VerticalTable :table-data="tableData" :table-style="tableStyle" />
 ```
 
-### Compiles and minifies for production
+### tableData
+
 ```
-yarn run build
+tableData: [
+  {
+    name: 'row1',
+    children: [
+      { isEdit: false, key: '單號', value: '1001' },
+      { isEdit: true, type: 'input', key: '商品名稱', value: '籃球' }
+    ]
+  }
+  ...
+]
 ```
 
-### Run your tests
-```
-yarn run test
-```
+| prop   | type     | value |
+| ------ | -------- | ----- |
+| isEdit | boolean  | -     |
+| type   | String   | input |
+| key    | String   | -     |
+| value  | String - |
 
-### Lints and fixes files
-```
-yarn run lint
-```
+## License
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[MIT](https://github.com/ysya/vue-vertical-table/blob/master/LICENSE)
+
+Copyright (c) 2019-present ysya
