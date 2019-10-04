@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .table-box {
   .table-body {
     width: 100%;
@@ -82,6 +82,13 @@ export default {
         }
         .td-value {
           flex: 1 0;
+          .el-input {
+            input {
+              border-style: none;
+              background: rgba(255, 255, 255, 0);
+              padding: 0;
+            }
+          }
           // line-height: 20px;
           // padding: 10px 20px;
         }
@@ -97,17 +104,6 @@ export default {
     line-height: 40px;
     box-sizing: border-box;
     padding: 0 8px;
-  }
-}
-</style>
-<style lang="scss">
-.td-value {
-  .el-input {
-    input {
-      border-style: none;
-      background: rgba(255, 255, 255, 0);
-      padding: 0;
-    }
   }
 }
 </style>
