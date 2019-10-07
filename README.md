@@ -7,6 +7,10 @@ npm i ysya/vue-vertical-table
 ```
 
 ## Use
+```
+import VerticalTable from 'vue-vertical-table'
+import 'vue-vertical-table/dist/VerticalTable.css'
+```
 
 ```
 <VerticalTable :table-data="tableData" :table-style="tableStyle" />
