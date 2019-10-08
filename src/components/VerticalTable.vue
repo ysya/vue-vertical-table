@@ -1,5 +1,5 @@
 <template>
-  <div class="table-box" :style="styleObject" @click="$emit('input', value)">
+  <div class="table-box" :style="styleObject">
     <table class="table-body">
       <tr v-for="(row, outerIndex) in tData" :key="outerIndex" class="tr-body">
         <div
@@ -9,13 +9,13 @@
           :style="{ flex: '0 0 ' + 100 / row.length + '%' }"
         >
           <td class="td-key">{{ col.key }}</td>
-          <template v-if="col.isEdit === false">
+          <template v-if="!col.isEdit">
             <td class="td-value">{{ col.value }}</td>
           </template>
-          <template v-if="col.isEdit === true">
+          <template v-if="col.isEdit">
             <template v-if="col.type === 'input'">
               <td class="td-value">
-                <el-input v-model="col.value" />
+                <input v-model="col.value">
               </td>
             </template>
           </template>
@@ -31,10 +31,7 @@ export default {
   // eslint-disable-next-line
   // props: ['tableData', 'tableStyle'],
   props: {
-    value: {
-      type: Array,
-      default: () => []
-    },
+    value: null,
     multiRow: {
       type: Boolean,
       default: false
@@ -115,13 +112,17 @@ export default {
         }
         .td-value {
           flex: 1 0;
-          .el-input {
-            input {
-              border-style: none;
-              background: rgba(255, 255, 255, 0);
-              padding: 0;
-            }
+          input {
+            border-style: none;
+            background: rgba(255, 255, 255, 0);
+            padding: 0;
+            line-height: 32px;
+            height: 32px;
+            font-size: inherit;
+            width: 100%;
+            outline: none;
           }
+
           // line-height: 20px;
           // padding: 10px 20px;
         }
@@ -132,7 +133,7 @@ export default {
   tr td {
     // border: 1px solid #e6eaee;
     // width: 150px;
-    widows: 100%;
+    // width: 100%;
     // height: 35px;
     line-height: 40px;
     box-sizing: border-box;

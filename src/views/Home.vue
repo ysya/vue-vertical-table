@@ -5,10 +5,17 @@
       :table-data="tableData"
       :table-style="tableStyle"
     />
-    <el-button type="primary" @click="getData">取得資料</el-button>
+    <button @click="getData">取得資料</button>
     <h4>雙向綁定：</h4>
     <el-input v-model="tableStyle.width" placeholder="" />
     <vue-json-pretty :data="data" />
+
+    <CrossTable
+      :table-data="tableData1"
+      :table-label="tableLabel"
+      :table-style="tableStyle"
+    />
+    <button type="primary" @click="handleAddHItem">水平項目</button>
   </div>
 </template>
 
@@ -42,16 +49,18 @@ export default {
             },
             { isEdit: true, type: 'input', key: '付款方式', value: '信用卡' }
           ]
-        },
-        {
-          name: 'row3',
-          children: [
-            { isEdit: true, type: 'input', key: '姓名', value: '王大明' },
-            { isEdit: true, type: 'input', key: '性別', value: '女' },
-            { isEdit: true, type: 'input', key: '職業', value: '學生' },
-            { isEdit: true, type: 'input', key: '年齡', value: '100' }
-          ]
         }
+      ],
+      tableLabel: [
+        { label: '', width: '120', prop: 'name', fixed: 'left' },
+        { label: '是', width: '40', prop: '是' },
+        { label: '否', width: '40', prop: '否' },
+        { label: '不需要', width: '60', prop: '不需要' }
+      ],
+      tableData1: [
+        { isEdit: true, name: '檢測項目1', 是: '○', 否: '○', 不需要: '○' },
+        { isEdit: true, name: '檢測項目2', 是: '○', 否: '○', 不需要: '○' },
+        { isEdit: true, name: '檢測項目3', 是: '○', 否: '○', 不需要: '○' }
       ]
     }
   },
@@ -59,6 +68,12 @@ export default {
   methods: {
     getData() {
       console.log(this.tableData)
+    },
+    handleAddHItem() {
+      this.tableLabel.push({
+        label: '新項目',
+        prop: ''
+      })
     }
   }
 }
