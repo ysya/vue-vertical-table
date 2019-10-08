@@ -1,11 +1,14 @@
 <template>
   <div>
-    <VerticalTable :table-data="tableData" :table-style="tableStyle" />
+    <VerticalTable
+      v-model="data"
+      :table-data="tableData"
+      :table-style="tableStyle"
+    />
     <el-button type="primary" @click="getData">取得資料</el-button>
-
     <h4>雙向綁定：</h4>
     <el-input v-model="tableStyle.width" placeholder="" />
-    <vue-json-pretty :data="tableData" />
+    <vue-json-pretty :data="data" />
   </div>
 </template>
 
@@ -17,6 +20,7 @@ export default {
   },
   data() {
     return {
+      data: '',
       tableStyle: { width: '500px' },
       tableData: [
         {

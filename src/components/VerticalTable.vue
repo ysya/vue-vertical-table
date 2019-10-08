@@ -1,5 +1,5 @@
 <template>
-  <div class="table-box" :style="styleObject">
+  <div class="table-box" :style="styleObject" @click="$emit('input', value)">
     <table class="table-body">
       <tr v-for="(row, outerIndex) in tData" :key="outerIndex" class="tr-body">
         <div
@@ -29,10 +29,30 @@
 export default {
   name: 'VerticalTable',
   // eslint-disable-next-line
-  props: ['tableData', 'tableStyle'],
+  // props: ['tableData', 'tableStyle'],
+  props: {
+    value: {
+      type: Array,
+      default: () => []
+    },
+    multiRow: {
+      type: Boolean,
+      default: false
+    },
+    tableData: {
+      type: Array,
+      default: () => []
+    },
+    tableStyle: {
+      type: Object,
+      default: () => {}
+    }
+  },
+
   data() {
     return {
-      styleObject: {}
+      styleObject: {},
+      currentValue: this.value
     }
   },
   computed: {
@@ -45,9 +65,22 @@ export default {
       })
     }
   },
+  watch: {
+    value(value) {
+      if (value === this.currentValue) return
+      this.currentValue = value
+    },
+    tableStyle(tableStyle) {
+      if (tableStyle === this.styleObject) return
+      this.styleObject = tableStyle
+    }
+  },
   created() {
     this.styleObject = this.tableStyle
     console.log(this.tData)
+  },
+  mounted() {
+    this.$emit('input', this.tableData)
   },
   methods: {}
 }
