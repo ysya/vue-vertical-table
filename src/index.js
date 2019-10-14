@@ -1,10 +1,15 @@
 import VerticalTable from '@/components/VerticalTable.vue'
+import CrossTable from '@/components/CrossTable.vue'
 
 VerticalTable.install = function(Vue) {
   Vue.component(VerticalTable.name, VerticalTable)
 }
 
-const components = [VerticalTable]
+CrossTable.install = function(Vue) {
+  Vue.component(CrossTable.name, CrossTable)
+}
+
+const components = [VerticalTable, CrossTable]
 
 const install = function(Vue, opts = {}) {
   components.forEach(component => {
@@ -18,10 +23,12 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export {
   install,
-  VerticalTable
+  VerticalTable,
+  CrossTable
 }
 
 export default {
   install,
-  VerticalTable
+  VerticalTable,
+  CrossTable
 }

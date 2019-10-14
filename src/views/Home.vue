@@ -7,14 +7,16 @@
     />
     <button @click="getData">取得資料</button>
     <h4>雙向綁定：</h4>
-    <el-input v-model="tableStyle.width" placeholder="" />
-    <vue-json-pretty :data="data" />
+    <input v-model="tableStyle.width" placeholder="">
+    <!-- <vue-json-pretty :data="data" /> -->
 
     <CrossTable
+      v-model="data1"
       :table-data="tableData1"
-      :table-label="tableLabel"
       :table-style="tableStyle"
     />
+    <input v-model="tableData1[0].title" placeholder="">
+    <vue-json-pretty :data="data1" />
     <button type="primary" @click="handleAddHItem">水平項目</button>
   </div>
 </template>
@@ -23,11 +25,13 @@
 import VueJsonPretty from 'vue-json-pretty'
 export default {
   components: {
+    // eslint-disable-next-line
     VueJsonPretty
   },
   data() {
     return {
       data: '',
+      data1: '',
       tableStyle: { width: '500px' },
       tableData: [
         {
@@ -51,16 +55,42 @@ export default {
           ]
         }
       ],
-      tableLabel: [
-        { label: '', width: '120', prop: 'name', fixed: 'left' },
-        { label: '是', width: '40', prop: '是' },
-        { label: '否', width: '40', prop: '否' },
-        { label: '不需要', width: '60', prop: '不需要' }
-      ],
       tableData1: [
-        { isEdit: true, name: '檢測項目1', 是: '○', 否: '○', 不需要: '○' },
-        { isEdit: true, name: '檢測項目2', 是: '○', 否: '○', 不需要: '○' },
-        { isEdit: true, name: '檢測項目3', 是: '○', 否: '○', 不需要: '○' }
+        {
+          title: 'A機',
+
+          children: [
+            { name: '電壓', value: '11', isEdit: true, type: 'input' },
+            { name: '電流', value: '111', isEdit: true, type: 'input' },
+            { name: '是否更換', value: '1111', isEdit: true, type: 'input' },
+            { name: '耗材', value: '11111', isEdit: true, type: 'input' }
+          ]
+        },
+        {
+          title: 'B機',
+          isEdit: true,
+          children: [
+            { name: '電壓', value: '22', isEdit: true, type: 'input' },
+            { name: '電流', value: '222', isEdit: true, type: 'input' },
+            {
+              name: '是否更換',
+              value: '2222',
+              isEdit: true,
+              type: 'input'
+            },
+            { name: '耗材', value: '22222', isEdit: true, type: 'input' }
+          ]
+        },
+        {
+          title: 'C機',
+          isEdit: true,
+          children: [
+            { name: '電壓', value: '33', isEdit: true, type: 'input' },
+            { name: '電流', value: '333', isEdit: true, type: 'input' },
+            { name: '是否更換', value: '3333', isEdit: true, type: 'input' },
+            { name: '耗材', value: '33333', isEdit: true, type: 'input' }
+          ]
+        }
       ]
     }
   },

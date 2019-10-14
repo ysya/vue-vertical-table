@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .table-box {
   .table-body {
     width: 100%;
