@@ -2,7 +2,8 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   productionSourceMap: false,
-  publicPath: './',
+  // publicPath: './',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-vertical-table/' : './',
   configureWebpack: config => {
     const plugins = [
       new TerserPlugin({

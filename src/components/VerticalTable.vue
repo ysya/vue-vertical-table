@@ -28,9 +28,9 @@
 <script>
 export default {
   name: 'VerticalTable',
-  // eslint-disable-next-line
   // props: ['tableData', 'tableStyle'],
   props: {
+    // eslint-disable-next-line
     value: null,
     multiRow: {
       type: Boolean,
@@ -74,7 +74,7 @@ export default {
   },
   created() {
     this.styleObject = this.tableStyle
-    console.log(this.tData)
+    // console.log(this.tData)
   },
   mounted() {
     this.$emit('input', this.tableData)

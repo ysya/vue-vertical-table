@@ -10,6 +10,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- TODO: 以最長陣列判斷產生多少tr -->
         <tr
           v-for="(rowTitle, rowTitleIndex) in Object.values(tData[0]).map(
             item => item.name
@@ -93,10 +94,10 @@ export default {
   },
   created() {
     this.styleObject = this.tableStyle
-    console.group('Data:')
-    console.log(this.tTitle)
-    console.log(this.tData)
-    console.groupEnd()
+    // console.group('Data:')
+    // console.log(this.tTitle)
+    // console.log(this.tData)
+    // console.groupEnd()
   },
   mounted() {
     this.$emit('input', this.tableData)

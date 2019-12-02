@@ -1,23 +1,24 @@
 <template>
   <div>
+    <h4>VerticalTable</h4>
+    width: <input v-model="tableStyle.vTable.width" placeholder="px">
     <VerticalTable
       v-model="data"
-      :table-data="tableData"
-      :table-style="tableStyle"
+      :table-data="vTableData"
+      :table-style="tableStyle.vTable"
     />
-    <button @click="getData">取得資料</button>
-    <h4>雙向綁定：</h4>
-    <input v-model="tableStyle.width" placeholder="">
-    <!-- <vue-json-pretty :data="data" /> -->
+    <button @click="getData('vTable')">Get Data (in your console)</button>
+    <h4>CrossTable</h4>
+    width: <input v-model="tableStyle.cTable.width" placeholder="px">
 
     <CrossTable
       v-model="data1"
-      :table-data="tableData1"
-      :table-style="tableStyle"
+      :table-data="crossTableData"
+      :table-style="tableStyle.cTable"
     />
-    <input v-model="tableData1[0].title" placeholder="">
-    <vue-json-pretty :data="data1" />
-    <button type="primary" @click="handleAddHItem">水平項目</button>
+    <button @click="getData('crossTable')">Get Data (in your console)</button>
+    <!-- <vue-json-pretty :data="data1" /> -->
+    <!-- <button type="primary" @click="handleAddHItem">水平項目</button> -->
   </div>
 </template>
 
@@ -32,63 +33,75 @@ export default {
     return {
       data: '',
       data1: '',
-      tableStyle: { width: '500px' },
-      tableData: [
+      tableStyle: {
+        vTable: { width: '500px' },
+        cTable: { width: '500px' }
+      },
+      vTableData: [
         {
           name: 'row1',
           children: [
-            { isEdit: false, key: '單號', value: '1001' },
-            { isEdit: true, type: 'input', key: '商品名稱', value: '籃球' }
+            { isEdit: false, key: 'Order No.', value: '1001' },
+            { isEdit: true, type: 'input', key: 'Product Name', value: 'Basketball' }
           ]
         },
         {
           name: 'row2',
           children: [
-            { isEdit: true, type: 'input', key: '價格', value: '120' },
+            { isEdit: true, type: 'input', key: 'Price', value: '120' },
             {
               isEdit: true,
               type: 'input',
-              key: '訂單日期',
+              key: 'Date',
               value: '2017-03-01'
             },
-            { isEdit: true, type: 'input', key: '付款方式', value: '信用卡' }
+            { isEdit: true, type: 'input', key: 'Payment', value: 'Creditcard' }
           ]
         }
       ],
-      tableData1: [
+      crossTableData: [
         {
-          title: 'A機',
-
+          title: 'John',
           children: [
-            { name: '電壓', value: '11', isEdit: true, type: 'input' },
-            { name: '電流', value: '111', isEdit: true, type: 'input' },
-            { name: '是否更換', value: '1111', isEdit: true, type: 'input' },
-            { name: '耗材', value: '11111', isEdit: true, type: 'input' }
+            { name: 'Gender', value: 'M', isEdit: true, type: 'input' },
+            { name: 'Age', value: '18', isEdit: true, type: 'input' },
+            { name: 'Height', value: '200', isEdit: true, type: 'input' },
+            { name: 'Weight', value: '60', isEdit: true, type: 'input' }
           ]
         },
         {
-          title: 'B機',
-          isEdit: true,
+          title: 'Amy',
           children: [
-            { name: '電壓', value: '22', isEdit: true, type: 'input' },
-            { name: '電流', value: '222', isEdit: true, type: 'input' },
+            { name: 'Gender', value: 'F', isEdit: true, type: 'input' },
+
+            { name: 'Age', value: '22', isEdit: true, type: 'input' },
             {
-              name: '是否更換',
-              value: '2222',
+              name: 'Height',
+              value: '160',
               isEdit: true,
               type: 'input'
             },
-            { name: '耗材', value: '22222', isEdit: true, type: 'input' }
+            { name: 'Weight', value: '45', isEdit: true, type: 'input' }
           ]
         },
         {
-          title: 'C機',
-          isEdit: true,
+          title: 'Ryan',
           children: [
-            { name: '電壓', value: '33', isEdit: true, type: 'input' },
-            { name: '電流', value: '333', isEdit: true, type: 'input' },
-            { name: '是否更換', value: '3333', isEdit: true, type: 'input' },
-            { name: '耗材', value: '33333', isEdit: true, type: 'input' }
+            { name: 'Gender', value: 'M', isEdit: true, type: 'input' },
+
+            { name: 'Age', value: '36', isEdit: true, type: 'input' },
+            { name: 'Height', value: '171', isEdit: true, type: 'input' },
+            { name: 'Weight', value: '70', isEdit: true, type: 'input' }
+          ]
+        },
+        {
+          title: 'Ted',
+          children: [
+            { name: 'Gender', value: 'M', isEdit: true, type: 'input' },
+
+            { name: 'Age', value: '12', isEdit: true, type: 'input' },
+            { name: 'Height', value: '168', isEdit: true, type: 'input' },
+            { name: 'Weight', value: '58', isEdit: true, type: 'input' }
           ]
         }
       ]
@@ -96,8 +109,12 @@ export default {
   },
   mounted() {},
   methods: {
-    getData() {
-      console.log(this.tableData)
+    getData(table) {
+      if (table === 'vTable') {
+        console.log('vTable:', this.vTableData)
+      } else if (table === 'crossTable') {
+        console.log('crossTable:', this.crossTableData)
+      }
     },
     handleAddHItem() {
       this.tableLabel.push({
