@@ -4,6 +4,17 @@ module.exports = {
   productionSourceMap: false,
   // publicPath: './',
   publicPath: process.env.NODE_ENV === 'production' ? '/vue-vertical-table/' : './',
+  filenameHashing: false,
+  pages: {
+    'vertical-table': {
+      entry: 'src/main.js',
+      template: 'public/index.html',
+      filename: 'index.html',
+      title: 'vue-vertical-table'
+      // chunk
+      // chunks: ['chunk-vendors', 'chunk-common', 'index']
+    }
+  },
   configureWebpack: config => {
     const plugins = [
       new TerserPlugin({

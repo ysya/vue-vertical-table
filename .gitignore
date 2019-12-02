@@ -3,6 +3,7 @@ node_modules
 yarn.lock
 package-lock.json
 deploy.sh
+dist
 
 # local env files
 .env.local

@@ -3,11 +3,13 @@
   "version": "0.2.0",
   "private": true,
   "licence": "MIT",
-  "main": "dist/VerticalTable.common.js",
+  "main": "dist/vertical-table.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name VerticalTable ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --target lib --name verticalTable ./src/index.js",
+    "lint": "vue-cli-service lint",
+    "build-gh": "vue-cli-service build"
+
   },
   "dependencies": {
     "core-js": "^2.6.9",
