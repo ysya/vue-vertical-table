@@ -7,7 +7,9 @@
       :table-data="vTableData"
       :table-style="tableStyle.vTable"
     />
-    <button @click="getData('vTable')">Get Data (in your console)</button>
+    <button @click="getData('vTable')">Get Data</button>
+    <vue-json-pretty :data="data" :deep="2" />
+
     <h4>CrossTable</h4>
     width: <input v-model="tableStyle.cTable.width" placeholder="px">
 
@@ -16,9 +18,10 @@
       :table-data="crossTableData"
       :table-style="tableStyle.cTable"
     />
-    <button @click="getData('crossTable')">Get Data (in your console)</button>
-    <!-- <vue-json-pretty :data="data1" /> -->
-    <!-- <button type="primary" @click="handleAddHItem">水平項目</button> -->
+    <button @click="getData('crossTable')">Get Data</button>
+    <div style="height: 200px">
+      <vue-json-pretty :data="data1" :deep="2" />
+    </div>
   </div>
 </template>
 
@@ -42,7 +45,12 @@ export default {
           name: 'row1',
           children: [
             { isEdit: false, key: 'Order No.', value: '1001' },
-            { isEdit: true, type: 'input', key: 'Product Name', value: 'Basketball' }
+            {
+              isEdit: true,
+              type: 'input',
+              key: 'Product Name',
+              value: 'Basketball'
+            }
           ]
         },
         {
@@ -111,8 +119,10 @@ export default {
   methods: {
     getData(table) {
       if (table === 'vTable') {
+        alert(JSON.stringify(this.vTableData))
         console.log('vTable:', this.vTableData)
       } else if (table === 'crossTable') {
+        alert(JSON.stringify(this.crossTableData))
         console.log('crossTable:', this.crossTableData)
       }
     },
