@@ -1,15 +1,19 @@
 {
   "name": "vue-vertical-table",
   "version": "0.2.0",
-  "private": true,
+  "description": "vertical-table of vue.js https://frank.shellwe.me/vue-vertical-table",
+  "author": "Frank Sung (ysya33333@gmail.com)",
   "licence": "MIT",
-  "main": "dist/vertical-table.common.js",
+  "main": "lib/vertical-table.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name verticalTable ./src/index.js",
+    "build": "vue-cli-service build --target lib --name vertical-table --dest lib ./src/index.js",
     "lint": "vue-cli-service lint",
     "build-gh": "vue-cli-service build"
-
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ysya/vue-vertical-table.git"
   },
   "dependencies": {
     "core-js": "^2.6.9",
