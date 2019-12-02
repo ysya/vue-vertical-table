@@ -3,7 +3,7 @@
   "version": "0.2.3",
   "description": "vertical-table of vue.js https://frank.shellwe.me/vue-vertical-table",
   "author": "Frank Sung (ysya33333@gmail.com)",
-  "licence": "MIT",
+  "license": "MIT",
   "main": "lib/vertical-table.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
