@@ -15,6 +15,13 @@
     "type": "git",
     "url": "https://github.com/ysya/vue-vertical-table.git"
   },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "Vue",
+    "table"
+  ],
   "dependencies": {
     "core-js": "^2.6.9",
     "vue": "^2.6.10",
