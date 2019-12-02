@@ -3,13 +3,13 @@
 ## Install
 
 ```
-npm i ysya/vue-vertical-table
+npm i vue-vertical-table
 ```
 
 ## Use
 ```
 import VerticalTable from 'vue-vertical-table'
-import 'vue-vertical-table/dist/VerticalTable.css'
+import 'vue-vertical-table/lib/vertical-table.css'
 ```
 
 ```
@@ -37,6 +37,10 @@ tableData: [
 | type   | String   | input |
 | key    | String   | -     |
 | value  | String - |
+
+## Demo
+
+[Click here](https://frank.shellwe.me/vue-vertical-table)
 
 ## License
 
