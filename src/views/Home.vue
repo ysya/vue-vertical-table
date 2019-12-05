@@ -37,7 +37,7 @@ export default {
       data: '',
       data1: '',
       tableStyle: {
-        vTable: { width: '500px' },
+        vTable: { width: '600px' },
         cTable: { width: '500px' }
       },
       vTableData: [
@@ -50,6 +50,12 @@ export default {
               type: 'input',
               key: 'Product Name',
               value: 'Basketball'
+            },
+            {
+              isEdit: true,
+              type: 'checkbox',
+              key: 'Checked',
+              value: false
             }
           ]
         },
@@ -71,6 +77,7 @@ export default {
         {
           title: 'John',
           children: [
+            { name: 'love me?', value: false, isEdit: true, type: 'checkbox' },
             { name: 'Gender', value: 'M', isEdit: true, type: 'input' },
             { name: 'Age', value: '18', isEdit: true, type: 'input' },
             { name: 'Height', value: '200', isEdit: true, type: 'input' },
@@ -80,8 +87,8 @@ export default {
         {
           title: 'Amy',
           children: [
+            { name: 'love me?', value: true, isEdit: true, type: 'checkbox' },
             { name: 'Gender', value: 'F', isEdit: true, type: 'input' },
-
             { name: 'Age', value: '22', isEdit: true, type: 'input' },
             {
               name: 'Height',
@@ -95,8 +102,8 @@ export default {
         {
           title: 'Ryan',
           children: [
+            { name: 'love me?', value: false, isEdit: true, type: 'checkbox' },
             { name: 'Gender', value: 'M', isEdit: true, type: 'input' },
-
             { name: 'Age', value: '36', isEdit: true, type: 'input' },
             { name: 'Height', value: '171', isEdit: true, type: 'input' },
             { name: 'Weight', value: '70', isEdit: true, type: 'input' }
@@ -105,8 +112,8 @@ export default {
         {
           title: 'Ted',
           children: [
+            { name: 'love me?', value: false, isEdit: true, type: 'checkbox' },
             { name: 'Gender', value: 'M', isEdit: true, type: 'input' },
-
             { name: 'Age', value: '12', isEdit: true, type: 'input' },
             { name: 'Height', value: '168', isEdit: true, type: 'input' },
             { name: 'Weight', value: '58', isEdit: true, type: 'input' }

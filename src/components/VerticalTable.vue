@@ -9,15 +9,20 @@
           :style="{ flex: '0 0 ' + 100 / row.length + '%' }"
         >
           <td class="td-key">{{ col.key }}</td>
-          <template v-if="!col.isEdit">
-            <td class="td-value">{{ col.value }}</td>
-          </template>
           <template v-if="col.isEdit">
             <template v-if="col.type === 'input'">
               <td class="td-value">
                 <input v-model="col.value">
               </td>
             </template>
+            <template v-if="col.type === 'checkbox'">
+              <td class="td-value">
+                <input v-model="col.value" type="checkbox">
+              </td>
+            </template>
+          </template>
+          <template v-else>
+            <td class="td-value">{{ col.value }}</td>
           </template>
         </div>
       </tr>
@@ -114,6 +119,7 @@ export default {
           flex: 1 0;
           input {
             border-style: none;
+            vertical-align: middle;
             background: rgba(255, 255, 255, 0);
             padding: 0;
             line-height: 32px;

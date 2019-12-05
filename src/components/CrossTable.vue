@@ -32,8 +32,16 @@
               >
                 <input v-model="Object.values(col)[rowTitleIndex].value">
               </template>
+              <template
+                v-if="Object.values(col)[rowTitleIndex].type === 'checkbox'"
+              >
+                <input
+                  v-model="Object.values(col)[rowTitleIndex].value"
+                  type="checkbox"
+                >
+              </template>
             </template>
-            <template v-if="!Object.values(col)[rowTitleIndex].isEdit">
+            <template v-else>
               {{ Object.values(col)[rowTitleIndex].value }}
             </template>
           </td>
@@ -142,6 +150,7 @@ export default {
 
         input {
           border-style: none;
+          vertical-align: middle;
           background: rgba(255, 255, 255, 0);
           padding: 0 0 0 10px;
           line-height: 32px;
@@ -150,7 +159,6 @@ export default {
           width: 100%;
           outline: none;
         }
-
         // line-height: 20px;
         // padding: 10px 20px;
       }

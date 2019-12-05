@@ -24,8 +24,9 @@ vTableData: [
   {
     name: 'row1',
     children: [
-      { isEdit: false, key: '單號', value: '1001' },
-      { isEdit: true, type: 'input', key: '商品名稱', value: '籃球' }
+      { isEdit: false, key: 'Order No.', value: '1001' },
+      { isEdit: true, type: 'input', key: 'Product Name', value: 'Basketball' },
+      { isEdit: true, type: 'checkbox', key: 'Checked', value: false }
     ]
   },
   ...
@@ -34,6 +35,7 @@ crossTableData: [
   {
     title: 'John',
     children: [
+      { name: 'love me?', value: false, isEdit: true, type: 'checkbox' },
       { name: 'Gender', value: 'M', isEdit: true, type: 'input' },
       { name: 'Age', value: '18', isEdit: true, type: 'input' },
       { name: 'Height', value: '200', isEdit: true, type: 'input' },
@@ -43,15 +45,10 @@ crossTableData: [
   {
     title: 'Amy',
     children: [
+      { name: 'love me?', value: true, isEdit: true, type: 'checkbox' },
       { name: 'Gender', value: 'F', isEdit: true, type: 'input' },
-
       { name: 'Age', value: '22', isEdit: true, type: 'input' },
-      {
-        name: 'Height',
-        value: '160',
-        isEdit: true,
-        type: 'input'
-      },
+      { name: 'Height', value: '160', isEdit: true, type: 'input'},
       { name: 'Weight', value: '45', isEdit: true, type: 'input' }
     ]
   },
@@ -59,12 +56,23 @@ crossTableData: [
 ]
 ```
 
+#### Input
+
 | prop   | type     | value |
 | ------ | -------- | ----- |
 | isEdit | boolean  | -     |
 | type   | String   | input |
 | key    | String   | -     |
-| value  | String - |
+| value  | String   | -     |
+
+#### Checkbox
+
+| prop   | type     | value |
+| ------ | -------- | ----- |
+| isEdit | boolean  | -     |
+| type   | String   | checkbox |
+| key    | String   | -     |
+| value  | boolean  | -     |
 
 ## Demo
 
